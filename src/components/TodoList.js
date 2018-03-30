@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { connect } from 'react-redux';
 
 const TodoItem = ({ isComplete, name }) => {
   return (
@@ -23,4 +24,10 @@ const TodoList = ({ todos }) => {
   )
 }
 
-export default TodoList;
+const mapStateToProps = (state) => {
+  return {
+    todos: state.todos
+  }
+}
+
+export default connect(mapStateToProps)(TodoList);
