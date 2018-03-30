@@ -10,7 +10,9 @@ class App extends Component {
     return (
       <div className="App">
         <div className="Todo-App">
-          <TodoForm />
+          <TodoForm
+            currentTodo={this.props.currentTodo}
+            changeCurrent={this.props.changeCurrent} />
           <TodoList todos={this.props.todos} />
         </div>
       </div>
