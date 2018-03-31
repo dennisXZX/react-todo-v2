@@ -3,9 +3,10 @@
 }
 
 .Todo-App {
-  padding-top: 20px;
+  padding-top: 40px;
   display: inline-block;
   text-align: left;
+  position: relative;
 }
 
 input {
@@ -18,4 +19,15 @@ ul {
 
 li {
   list-style-type: none;
+}
+
+.message {
+  background-color: #61DAFB;
+  color: #fff;
+  border: solid 1px #61DAFB;
+  position: absolute;
+  text-align: center;
+  width: 200px;
+  top: 10px;
+  left: 7px;
 }

@@ -28,7 +28,7 @@ class TodoForm extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    currentTodo: state.currentTodo,
+    currentTodo: state.todo.currentTodo,
   }
 }
 

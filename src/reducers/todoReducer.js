@@ -1,13 +1,14 @@
-import { createTodo, getTodos } from '../lib/todoServices'
+import { createTodo, getTodos } from '../lib/todoServices';
+import { showMessage } from './messageReducer';
 
 const initState = {
   todos: [],
   currentTodo: ''
 }
 
+export const TODO_ADD = 'TODO_ADD';
+export const TODOS_LOAD = 'TODOS_LOAD';
 const CURRENT_UPDATE = 'CURRENT_UPDATE';
-const TODO_ADD = 'TODO_ADD';
-const TODOS_LOAD = 'TODOS_LOAD';
 
 export const updateCurrent = (value) => {
   return {
@@ -36,6 +37,10 @@ export const addTodo = (todo) => {
   // when we successfully get the data from server, we manually dispatch an action object
 export const fetchTodos = () => {
   return (dispatch) => {
+    // dispatch a message action
+    dispatch(showMessage('Loading Todos'));
+
+    // call a to-do service to retrieve data
     getTodos()
       .then(todos => dispatch(loadTodos(todos)));
   }
@@ -43,8 +48,12 @@ export const fetchTodos = () => {
 
 export const saveTodo = (name) => {
   return (dispatch) => {
+    // dispatch a message action
+    dispatch(showMessage('Saving Todo'));
+
+    // call a to-do service to update to-do list
     createTodo(name)
-      .then(res => dispatch(addTodo(res)))
+      .then(res => dispatch(addTodo(res)));
   }
 }
 
