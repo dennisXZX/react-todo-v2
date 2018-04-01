@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { updateCurrent, saveTodo } from '../reducers/todoReducer'
+import { updateCurrent, saveTodo } from '../actions/index'
 
 
 class TodoForm extends Component {

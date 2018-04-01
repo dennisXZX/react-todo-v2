@@ -1,13 +1,7 @@
-import { TODO_ADD, TODOS_LOAD, TODO_REPLACE, TODO_REMOVE } from './todoReducer';
-
-const MESSAGE_SHOW = 'MESSAGE_SHOW';
-
-export const showMessage = (message) => {
-  return {
-    type: MESSAGE_SHOW,
-    payload: message
-  }
-}
+import {
+  TODO_ADD, TODOS_LOAD, TODO_REPLACE, TODO_REMOVE,
+  MESSAGE_SHOW
+} from '../actions/actionTypes';
 
 export default function (state='', action) {
   switch (action.type) {

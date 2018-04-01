@@ -1,11 +1,6 @@
 {
   "todos": [
     {
-      "id": 2,
-      "name": "Create Initial State",
-      "isComplete": true
-    },
-    {
       "id": 3,
       "name": "Use State to Render UI",
       "isComplete": true
@@ -26,9 +21,14 @@
       "id": 7
     },
     {
-      "name": "sddfdsdf",
+      "name": "gfdgfdg",
       "isComplete": false,
-      "id": 8
+      "id": 9
+    },
+    {
+      "name": "dffds",
+      "isComplete": false,
+      "id": 10
     }
   ]
 }
