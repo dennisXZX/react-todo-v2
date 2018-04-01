@@ -8,16 +8,16 @@
     {
       "id": 3,
       "name": "Use State to Render UI",
-      "isComplete": false
+      "isComplete": true
     },
     {
       "id": 4,
       "name": "Added todo",
-      "isComplete": false
+      "isComplete": true
     },
     {
       "name": "flsdf",
-      "isComplete": false,
+      "isComplete": true,
       "id": 5
     },
     {
@@ -26,7 +26,7 @@
       "id": 7
     },
     {
-      "name": "dsa",
+      "name": "sddfdsdf",
       "isComplete": false,
       "id": 8
     }

@@ -1,6 +1,6 @@
 ## React Todo V2
 
-Powered by React, Redux, Redux-thunk, json-server
+Powered by React, React-router, Redux, Redux-thunk, json-server
 
 #### Steps
 - run `yarn install` to install dependencies
