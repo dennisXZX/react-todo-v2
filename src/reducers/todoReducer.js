@@ -1,4 +1,4 @@
-import { createTodo, getTodos } from '../lib/todoServices';
+import { createTodo, getTodos, updateTodo, destroyTodo } from '../lib/todoServices';
 import { showMessage } from './messageReducer';
 
 const initState = {
@@ -9,6 +9,8 @@ const initState = {
 export const TODO_ADD = 'TODO_ADD';
 export const TODOS_LOAD = 'TODOS_LOAD';
 const CURRENT_UPDATE = 'CURRENT_UPDATE';
+export const TODO_REPLACE = 'TODO_REPLACE';
+export const TODO_REMOVE = 'TODO_REMOVE';
 
 export const updateCurrent = (value) => {
   return {
@@ -31,6 +33,20 @@ export const addTodo = (todo) => {
   }
 }
 
+export const replaceTodo = (todo) => {
+  return {
+    type: TODO_REPLACE,
+    payload: todo
+  }
+}
+
+export const removeTodo = (id) => {
+  return {
+    type: TODO_REMOVE,
+    payload: id
+  }
+}
+
   // since we need to fetch data from the server, which is asynchronous
   // so instead of returning an action directly
   // redux-thunk returns a function passing in the dispatch function as an argument
@@ -48,12 +64,42 @@ export const fetchTodos = () => {
 
 export const saveTodo = (name) => {
   return (dispatch) => {
-    // dispatch a message action
+
     dispatch(showMessage('Saving Todo'));
 
     // call a to-do service to update to-do list
     createTodo(name)
       .then(res => dispatch(addTodo(res)));
+  }
+}
+
+export const toggleTodo = (id) => {
+  return (dispatch, getState) => {
+
+    dispatch(showMessage('Saving todo update'));
+
+    // retrieve the to-do array from state, using the second parameter from redux-thunk
+    const { todos } = getState().todo;
+
+    // find the to-do item with the matched id
+    const todo = todos.find(todo => todo.id === id);
+
+    // toggle the isComplete property
+    const toggled = { ...todo, isComplete: !todo.isComplete }
+
+    // call a to-do service to update the todo
+    updateTodo(toggled)
+      .then(res => dispatch(replaceTodo(res)));
+  }
+}
+
+export const deleteTodo = (id) => {
+  return (dispatch) => {
+
+    dispatch(showMessage('Removing Todo'));
+
+    destroyTodo(id)
+      .then(() => dispatch(removeTodo(id)))
   }
 }
 
@@ -65,6 +111,18 @@ export default (state = initState, action) => {
       return { ...state, todos: action.payload }
     case CURRENT_UPDATE:
       return { ...state, currentTodo: action.payload }
+    case TODO_REPLACE:
+      return {
+        ...state,
+        todos: state.todos
+          .map(todo => todo.id === action.payload.id ? action.payload : todo)
+      }
+    case TODO_REMOVE:
+      return {
+        ...state,
+        todos: state.todos
+          .filter(todo => todo.id !== action.payload)
+      }
     default:
       return state;
   }

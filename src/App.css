@@ -31,3 +31,21 @@ li {
   top: 10px;
   left: 7px;
 }
+
+li span.delete-item {
+  visibility: hidden;
+}
+
+span.delete-item button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 1em;
+  font-weight: bold;
+  text-decoration: none;
+  color: red;
+}
+
+li:hover span.delete-item {
+  visibility: visible;
+}
