@@ -5,4 +5,4 @@ export const showMessage = (message) => {
     type: MESSAGE_SHOW,
     payload: message
   }
-}
+};

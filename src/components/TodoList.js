@@ -15,7 +15,7 @@ const TodoItem = ({ id, isComplete, name, toggleTodo, deleteTodo }) => {
       {name}
     </li>
   )
-}
+};
 
 class TodoList extends Component {
 
@@ -48,12 +48,12 @@ const mapStateToProps = (state, ownProps) => {
   return {
     todos: getVisibleTodos(state.todo.todos, ownProps.filter)
   }
-}
+};
 
 const mapDispatchToProps = {
   fetchTodos,
   toggleTodo,
   deleteTodo
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoList);

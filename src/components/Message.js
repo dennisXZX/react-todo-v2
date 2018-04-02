@@ -7,7 +7,7 @@ const Message = ({ message }) => {
       ? <span className='message'>{ message }</span>
       : null
   )
-}
+};
 
 function mapStateToProps(state) {
   return {

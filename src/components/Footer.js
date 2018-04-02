@@ -9,6 +9,6 @@ const Footer = (props) => {
       <Link to='/completed'>Completed</Link>
     </div>
   )
-}
+};
 
 export default Footer;

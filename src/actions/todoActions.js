@@ -1,7 +1,7 @@
 import {
   createTodo, destroyTodo,
   getTodos, updateTodo
-} from '../lib/todoServices';
+} from '../services/todoServices';
 
 import {
   CURRENT_UPDATE, TODO_ADD, TODO_REMOVE,
@@ -58,7 +58,7 @@ export const fetchTodos = () => {
     getTodos()
       .then(todos => dispatch(loadTodos(todos)));
   }
-}
+};
 
 export const saveTodo = (name) => {
   return (dispatch) => {
@@ -69,7 +69,7 @@ export const saveTodo = (name) => {
     createTodo(name)
       .then(res => dispatch(addTodo(res)));
   }
-}
+};
 
 export const toggleTodo = (id) => {
   return (dispatch, getState) => {
@@ -89,7 +89,7 @@ export const toggleTodo = (id) => {
     updateTodo(toggled)
       .then(res => dispatch(replaceTodo(res)));
   }
-}
+};
 
 export const deleteTodo = (id) => {
   return (dispatch) => {
@@ -99,7 +99,7 @@ export const deleteTodo = (id) => {
     destroyTodo(id)
       .then(() => dispatch(removeTodo(id)))
   }
-}
+};
 
 export const getVisibleTodos = (todos, filter) => {
   switch (filter) {
@@ -110,4 +110,4 @@ export const getVisibleTodos = (todos, filter) => {
     default:
       return todos;
   }
-}
+};

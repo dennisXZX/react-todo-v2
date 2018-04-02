@@ -3,7 +3,7 @@ import {
   MESSAGE_SHOW
 } from '../actions/actionTypes';
 
-export default function (state='', action) {
+const messageReducer = function (state='', action) {
   switch (action.type) {
     case MESSAGE_SHOW:
       return action.payload;
@@ -15,4 +15,6 @@ export default function (state='', action) {
     default:
       return state;
   }
-}
+};
+
+export default messageReducer;
