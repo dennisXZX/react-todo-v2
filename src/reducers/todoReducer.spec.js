@@ -12,7 +12,8 @@ describe('Todo Reducer', () => {
         { id: 1, name: 'Render static UI', isComplete: true },
         { id: 2, name: 'Create Initial State', isComplete: true },
         { id: 3, name: 'Use State to Render UI', isComplete: false }
-      ]
+      ],
+      currentTodo: ''
     };
 
     const expectedState = {
@@ -21,7 +22,8 @@ describe('Todo Reducer', () => {
         { id: 2, name: 'Create Initial State', isComplete: true },
         { id: 3, name: 'Use State to Render UI', isComplete: false },
         { id: 4, name: 'Added todo', isComplete: false }
-      ]
+      ],
+      currentTodo: ''
     };
 
     const action = {
